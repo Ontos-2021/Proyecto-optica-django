@@ -22,6 +22,7 @@ Activar entorno virtual
 
 ```bash
   source env/bin/activate
+  (windows) $ env\Scripts\activate 
 ```
 
 Instalar dependencias del proyecto
@@ -33,4 +34,9 @@ Correr Django
 
 ```bash
   python manage.py runserver
+```
+
+Instalar Pillow para usar ImageField
+```bash
+   python -m pip install Pillow
 ```
