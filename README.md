@@ -36,7 +36,3 @@ Correr Django
   python manage.py runserver
 ```
 
-Instalar Pillow para usar ImageField
-```bash
-   python -m pip install Pillow
-```
