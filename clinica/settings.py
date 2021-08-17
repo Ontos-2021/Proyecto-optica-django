@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # Apps propias
     'pacientes',
+    'ventas',
+    
 ]
 
 MIDDLEWARE = [
@@ -121,6 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#url publica con el nombre de la carpeta donde guardar las img
+MEDIA_URL = '/media/'
+
+# donde buscar los archivos multimedia
+MEDIA_ROOT= BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
