@@ -1,5 +1,8 @@
 from django.db import models
 from django.db.models.fields import DateTimeField
+from usuarios.models import Usuario
+from pacientes.models import Paciente 
+
 
 class Categorias(models.TextChoices):
     LENTES = 'Lentes'
@@ -25,5 +28,40 @@ class Producto(models.Model):
         verbose_name_plural="productos"    
 
     def __str__(self):
-        return f'{self.nombre} '
+        return self.nombre
+   
+class Pedido(models.Model):
+    
+    ESTADOS = (
+    ('pendiente', 'pendiente'),
+    ('pedido', 'pedido'),
+    ('taller', 'taller'),
+    ('finalizado', 'finalizado'),
+    )
 
+    FORMAS_PAGO = (
+        ('credito', 'credito'),        
+        ('debito', 'debito'),
+        ('billetera_virtual', 'billetera_virtual'),
+        ('efectivo', 'efectivo'),
+    )
+
+    vendedor = models.ForeignKey(Usuario, null=True, on_delete=models.SET_NULL)
+    paciente = models.ForeignKey(Paciente, on_delete=models.SET_NULL, null=True)  
+    producto = models.ManyToManyField(Producto) 
+    cantidad = models.IntegerField()       
+    forma_pago = models.CharField(max_length=20, default='credito', choices=FORMAS_PAGO, verbose_name='Forma de pago')    
+    estado = models.CharField(choices=ESTADOS, default='pendiente', max_length=10)
+    fecha_pedido = models.DateField(auto_now_add=True)
+    fecha_modificacion = models.DateField(auto_now = True, verbose_name="Fecha cambio de estado", null=True)
+
+    #def calcular_total(self):        
+       # return sum(self.producto.precio * self.cantidad)
+       
+    class Meta:
+        verbose_name = 'pedido'
+        verbose_name_plural = 'pedidos'
+
+    def __str__(self):
+        return (f'Pedido de {self.paciente.nombre}')
+        
