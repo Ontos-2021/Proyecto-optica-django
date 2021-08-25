@@ -52,11 +52,13 @@ class Pedido(models.Model):
     cantidad = models.IntegerField()       
     forma_pago = models.CharField(max_length=20, default='credito', choices=FORMAS_PAGO, verbose_name='Forma de pago')    
     estado = models.CharField(choices=ESTADOS, default='pendiente', max_length=10)
-    fecha_pedido = models.DateField(auto_now_add=True)
+    fecha_pedido = models.DateTimeField(auto_now_add=True, null=True)
     fecha_modificacion = models.DateField(auto_now = True, verbose_name="Fecha cambio de estado", null=True)
 
-    #def calcular_total(self):        
-       # return sum(self.producto.precio * self.cantidad)
+    def subtotal(self):      
+        return ({self.producto.precio} * {self.cantidad})
+    def total(self):      
+        return sum({self.producto.precio} * {self.cantidad})    
        
     class Meta:
         verbose_name = 'pedido'
