@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from ventas import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),    
     path('usuarios/', include('usuarios.urls')),
     path('usuarios/', include('django.contrib.auth.urls')),
-    path('pedidos/', include('ventas.urls')),
+    path('lista_pedidos/', views.lista_pedidos,  name='lista_pedidos'),
+    path('crear_pedido/', views.crear_pedido,  name='crear_pedido'),
+    path('modificar_pedido/<str:pk>/', views.modificarPedido, name='modificar_pedido'),
+    path('borrar_pedido/<str:pk>/', views.borrarPedido, name='borrar_pedido'),
     
 ]
