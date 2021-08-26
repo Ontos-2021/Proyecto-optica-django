@@ -40,6 +40,7 @@ def  crear_pedido(request):
             return redirect('lista_pedidos')
     context={'form': form, 'usuarios': usuarios}
     return render(request, 'ventas/nuevo_pedido.html', context)
+<<<<<<< HEAD
 
 def modificarPedido(request, pk):
     pedido = Pedido.objects.get(id=pk)
@@ -59,3 +60,5 @@ def borrarPedido(request, pk):
         return redirect('lista_pedidos')
     context = {'pedido': pedido}
     return render(request, 'ventas/borrar_pedido.html', context)    
+=======
+>>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d

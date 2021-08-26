@@ -25,7 +25,10 @@ urlpatterns = [
     path('usuarios/', include('django.contrib.auth.urls')),
     path('lista_pedidos/', views.lista_pedidos,  name='lista_pedidos'),
     path('crear_pedido/', views.crear_pedido,  name='crear_pedido'),
+<<<<<<< HEAD
     path('modificar_pedido/<str:pk>/', views.modificarPedido, name='modificar_pedido'),
     path('borrar_pedido/<str:pk>/', views.borrarPedido, name='borrar_pedido'),
+=======
+>>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d
     
 ]
