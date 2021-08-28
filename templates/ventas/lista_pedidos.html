@@ -3,11 +3,7 @@
 {% block title %}HomePedidos{% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
 <div class="container">
-=======
-<br>
->>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d
 <div class="row">
     <div class="col-md-5">
         <h5>Pacientes:</h5>
@@ -45,8 +41,8 @@
                     <th>Nº Pedido</th>
                     <th>Fecha</th>
                     <th>Estado</th>
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                            
             {% for pedido in pedidos %}
@@ -54,15 +50,9 @@
                 <td>{{pedido.id}}</td>
                 <td>{{pedido.fecha_pedido}}</td>
                 <td>{{pedido.estado}}</td>
-<<<<<<< HEAD
                 <td><a class="btn btn-outline-secondary" href="{% url 'modificar_pedido' pedido.id %}">Modificar</a></td>
 
                 <td><a class="btn btn-outline-danger" href="{% url 'borrar_pedido' pedido.id %}">Borrar</a></td>
-=======
-                <td><a class="btn btn-outline-secondary" href="#">Modificar</a></td>
-
-                <td><a class="btn btn-outline-danger" href="#">Borrar</a></td>
->>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d
             
             </tr>
 
@@ -70,16 +60,10 @@
            
 
             </table>
-<<<<<<< HEAD
             </div>
         </div>      
     </div>
     {% include 'ventas/estados.html' %}    
-=======
-        </div>
-    </div>
-
->>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d
 </div>
 {% endblock %}   
 

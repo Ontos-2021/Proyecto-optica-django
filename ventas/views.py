@@ -32,15 +32,16 @@ def lista_pedidos(request):
     
 def  crear_pedido(request):
     usuarios = Usuario.objects.all()
+    
     form = PedidoForm
     if request.method == 'POST':
         form = PedidoForm(request.POST)
         if form.is_valid():
             form.save() 
             return redirect('lista_pedidos')
+       
     context={'form': form, 'usuarios': usuarios}
     return render(request, 'ventas/nuevo_pedido.html', context)
-<<<<<<< HEAD
 
 def modificarPedido(request, pk):
     pedido = Pedido.objects.get(id=pk)
@@ -60,5 +61,3 @@ def borrarPedido(request, pk):
         return redirect('lista_pedidos')
     context = {'pedido': pedido}
     return render(request, 'ventas/borrar_pedido.html', context)    
-=======
->>>>>>> e8375fd0b7e17f60c8acd563e7640977ce372d8d

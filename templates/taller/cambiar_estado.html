@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Modificar estado{% endblock %}
+
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card card-body">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table class="table table-bordered " >
+                    <!--quiero filtar por nºpedido, producto y estado-->
+                {{form.as_table}} 
+                </table>
+                <input type="submit" name="Enviar">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
