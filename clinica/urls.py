@@ -23,14 +23,9 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),    
     path('usuarios/', include('usuarios.urls')),
-    path('usuarios/', include('django.contrib.auth.urls')),   
-    #path('ventas/', include('ventas.urls')),
-    #path('taller/', include('taller.urls')) ,
-    path('lista_pedidos/', lista_pedidos,  name='lista_pedidos'),
-    path('crear_pedido/', crear_pedido,  name='crear_pedido'),
-    path('modificar_pedido/<str:pk>/', modificarPedido, name='modificar_pedido'),
-    path('borrar_pedido/<str:pk>/', borrarPedido, name='borrar_pedido'),
-    path('ver_pedidos/', vistaPedidos, name='ver_pedidos'),
-    path('cambiar_estado/<str:pk>/', cambiarEstado, name='cambiar_estado'),
+    path('usuarios/', include('django.contrib.auth.urls')),  
+    path('', include('secretaria.urls')),
+    path('', include('ventas.urls')),
+    path('', include('taller.urls')) ,  
 
 ]

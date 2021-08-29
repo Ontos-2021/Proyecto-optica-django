@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}HomeTurnos{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+   
+    <div class="col-md-10">
+        <h5>Listado de Turnos asignados:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-secondary btn-sm btn-block" href="#">Generar turno</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Paciente</th>
+                    <th>Fecha</th>
+                    <th>Doctor</th>
+                    <th>Asistencia</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                           
+             {% for turno in turnos %} 
+            <tr>
+                <td>{{turno.paciente.nombre}}</td>
+                <td>{{turno.fecha}}</td>
+                <td>{{turno.doctor}}</td>
+                {% if asistencia == 'True' %}
+                <th>✔</th>
+                {% else %} 
+                <th>❌</th>
+                {% endif %}
+                <td><a class="btn btn-outline-secondary" href="#">Modificar</a></td>
+
+                <td><a class="btn btn-outline-danger" href="#">Borrar</a></td>
+            
+            </tr>
+
+            {% endfor %}
+            </table>
+            </div>
+        </div>      
+    </div>
+  
+</div>
+{% endblock %}   
+
