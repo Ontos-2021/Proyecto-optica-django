@@ -3,14 +3,15 @@
 {% block title %}HomeTurnos{% endblock %}
 
 {% block content %}
+<br>
 <div class="container">
 <div class="row">
    
-    <div class="col-md-10">
+    <div class="col-md-7">
         <h5>Listado de Turnos asignados:</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-secondary btn-sm btn-block" href="#">Generar turno</a>
+            <a class="btn btn-secondary btn-sm btn-block" href="{% url 'nuevo_turno' %}">Generar turno</a>
             <table class="table table-sm">
                 <tr>
                     <th>Paciente</th>
@@ -26,14 +27,10 @@
                 <td>{{turno.paciente.nombre}}</td>
                 <td>{{turno.fecha}}</td>
                 <td>{{turno.doctor}}</td>
-                {% if asistencia == 'True' %}
-                <th>✔</th>
-                {% else %} 
-                <th>❌</th>
-                {% endif %}
-                <td><a class="btn btn-outline-secondary" href="#">Modificar</a></td>
+                <td>{{turno.asistencia}}</td>                        
+                <td><a class="btn btn-outline-secondary" href="{% url 'modificar_turno' turno.id %}">Modificar</a></td>
 
-                <td><a class="btn btn-outline-danger" href="#">Borrar</a></td>
+                <td><a class="btn btn-outline-danger" href="{% url 'borrar_turno' turno.id %}">Borrar</a></td>
             
             </tr>
 
