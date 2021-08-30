@@ -3,35 +3,12 @@
 {% block title %}HomePedidos{% endblock %}
 
 {% block content %}
+<br>
 <div class="container">
 <div class="row">
-    <div class="col-md-5">
-        <h5>Pacientes:</h5>
-        <hr>
-        <div class="card card-body">
-            <a class="btn btn-secondary btn-sm btn-block" href="">Nuevo Paciente</a>
-            <table class="table table-sm">
-                <tr>
-                    <th></th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                </tr>
+    
 
-                     
-            {% for paciente in pacientes %}
-            <tr>
-                <td><a class="btn btn-outline-dark" href="#">View</a></td>
-                <td>{{paciente.nombre}}</td>
-                <td>{{paciente.email}}</td>
-            
-            </tr>
-
-            {% endfor %}
-            </table>
-        </div>
-    </div>
-
-    <div class="col-md-7">
+    <div class="col-md-12">
         <h5>Pedidos recientes:</h5>
         <hr>
         <div class="card card-body">
