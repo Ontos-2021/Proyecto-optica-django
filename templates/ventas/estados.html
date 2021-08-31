@@ -1,0 +1,70 @@
+<br>
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center mb-3" >
+                <div class="card-header">
+                    <h6 class="card-title">Pedidos Totales</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">{{pedidos_totales}}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center  mb-3" >
+                <div class="card-header">
+                    <h6 class="card-title">Pedidos</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">{{est_pedidos}}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center mb-3" >
+                <div class="card-header">
+                    <h6 class="card-title">Pendientes</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">{{pendientes}}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center  mb-3" >
+                <div class="card-header">
+                    <a href="{% url 'ver_pedidos' %}">Pedidos en Taller</a>
+                </div>
+                <div class="card-body">
+                    <h6class="card-title">{{en_taller}}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center  mb-3" >
+                <div class="card-header">
+                    <h6 class="card-title">Finalizados</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">{{finalizado}}</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

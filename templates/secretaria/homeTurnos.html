@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}HomeTurnos{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+<div class="row">
+    <div class="col-md-5">
+        <h5>Pacientes:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-secondary btn-sm btn-block" href="{% url 'nuevo_paciente' %}">Nuevo Paciente</a>
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                </tr>
+
+                     
+            {% for paciente in pacientes %}
+            <tr>
+                <td><a class="btn btn-outline-dark" href="{% url 'ver_paciente' paciente.id %}">Ver</a></td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.email}}</td>
+            
+            </tr>
+
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <h5>Listado de Turnos asignados:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-secondary btn-sm btn-block" href="{% url 'nuevo_turno' %}">Generar turno</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Paciente</th>
+                    <th>Fecha</th>
+                    <th>Doctor</th>
+                    <th>Asistencia</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                           
+             {% for turno in turnos %} 
+            <tr>
+                <td>{{turno.paciente.nombre}}</td>
+                <td>{{turno.fecha}}</td>
+                <td>{{turno.doctor}}</td>
+                <td>{{turno.asistencia}}</td>                        
+                <td><a class="btn btn-outline-secondary" href="{% url 'modificar_turno' turno.id %}">Modificar</a></td>
+
+                <td><a class="btn btn-outline-danger" href="{% url 'borrar_turno' turno.id %}">Borrar</a></td>
+            
+            </tr>
+
+            {% endfor %}
+            </table>
+            </div>
+        </div>      
+    </div>
+  
+</div>
+{% endblock %}   
+
