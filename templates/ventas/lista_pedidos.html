@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}HomePedidos{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-md-5">
+        <h5>Pacientes:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-secondary btn-sm btn-block" href="">Nuevo Paciente</a>
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                </tr>
+
+                     
+            {% for paciente in pacientes %}
+            <tr>
+                <td><a class="btn btn-outline-dark" href="#">View</a></td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.email}}</td>
+            
+            </tr>
+
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <h5>Pedidos recientes:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-secondary btn-sm btn-block" href="{% url 'crear_pedido' %}">Nuevo Pedido</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Nº Pedido</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                           
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.fecha_pedido}}</td>
+                <td>{{pedido.estado}}</td>
+                <td><a class="btn btn-outline-secondary" href="{% url 'modificar_pedido' pedido.id %}">Modificar</a></td>
+
+                <td><a class="btn btn-outline-danger" href="{% url 'borrar_pedido' pedido.id %}">Borrar</a></td>
+            
+            </tr>
+
+            {% endfor %}
+           
+
+            </table>
+            </div>
+        </div>      
+    </div>
+    {% include 'ventas/estados.html' %}    
+</div>
+{% endblock %}   
+
+
